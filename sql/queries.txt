@@ -1,0 +1,26 @@
+1, SELECT manufacturer as gyarto , COUNT(*) as db
+FROM transport
+GROUP BY manufacturer
+
+2, SELECT model, manufacturer, image
+FROM transport
+ORDER BY cargo_capacity DESC
+LIMIT 3
+
+3, SELECT model as tipus
+FROM `transport`
+WHERE (cargo_capacity=1) && (passengers=1) && (max_atmosphering_speed=1) && (crew=1)
+And  manufacturer LIKE 'a%' or manufacturer LIKE 'b%' or manufacturer LIKE 'c%'
+
+4, SELECT *
+FROM `transport`
+WHERE manufacturer LIKE '%Corporation%'
+And passengers>0
+AND (cost_in_credits<200000) && (cost_in_credits>10000)
+
+5, SELECT model as Megnevezes, manufacturer as Gyarto
+FROM `transport`
+WHERE (crew>1) && (crew<5)
+GROUP By crew
+And cargo_capacity !=0 && passengers !=0
+LIMIT 3
